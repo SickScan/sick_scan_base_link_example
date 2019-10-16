@@ -12,8 +12,8 @@ set( APP_SRC
 )
 
 
-add_executable(${PROJECT_NAME} ${TIM5XX_DEMO_SRC})
+add_executable(${PROJECT_NAME} ${APP_SRC})
 target_link_libraries(${PROJECT_NAME} ssbl::ssbl)
 
 
-set_target_properties (${PROJECT_NAME} PROPERTIES FOLDER Basic)
+set_target_properties (${PROJECT_NAME} PROPERTIES FOLDER Examples/Basic)
