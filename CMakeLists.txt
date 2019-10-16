@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-project(ssbl-project)
+project(sick_scan_base_examples)
 
 
 include(ExternalProject)
