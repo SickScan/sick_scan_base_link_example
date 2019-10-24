@@ -147,14 +147,15 @@ init:
 
 
 before_build:
-    - ps: git clone https://github.com/SickScan/sick_scan_base.git ssbl
-    - ps: cd ssbl
-    - ps: mkdir build
-    - ps: cd build
-    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..
-    - ps: cmake --build . --target install --config Release
-    - ps: cd ../..
-    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DSSBL_INSTALL_DIR=./ssbl/install -Bbuild .
+    - ps: >-
+        git clone https://github.com/SickScan/sick_scan_base.git ssbl
+        cd ssbl
+        mkdir build
+        cd build
+        cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..
+        cmake --build . --target install --config Release
+        cd ../..
+        cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DSSBL_INSTALL_DIR=./ssbl/install -Bbuild .
     
 build_script:
 - ps: cmake --build build --config Release
