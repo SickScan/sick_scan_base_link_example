@@ -1,3 +1,0 @@
-[submodule "src/lib/ssbl"]
-	path = src/lib/ssbl
-	url = https://github.com/SickScan/sick_scan_base.git
