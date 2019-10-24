@@ -149,7 +149,7 @@ init:
 
 
 before_build:
-    - cmd: git clone https://github.com/SickScan/sick_scan_base.git ssbl
+    - ps: git clone -q https://github.com/SickScan/sick_scan_base.git ssbl
     - ps: cd ssbl
     - ps: mkdir build
     - ps: cd build
