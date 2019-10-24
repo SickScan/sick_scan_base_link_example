@@ -66,6 +66,9 @@ matrix:
       arch_compiler: x64_mingw
       
 init:
+    - ps:  $env:buildType = "-DCMAKE_BUILD_TYPE=Release" 
+    - ps:  $env:installDir = "-DCMAKE_INSTALL_PREFIX=./install"
+
     - ps: >-
         switch($env:arch_compiler) {
             i386_msvc
@@ -87,7 +90,6 @@ init:
             }
             i386_mingw
             {
-                echo $env:path
                 $env:additionalCMakeFlags = "-DSSBL_32BIT=1"
             }
             deafult
@@ -151,7 +153,7 @@ before_build:
     - cmd: cd ssbl
     - cmd: mkdir build
     - cmd: cd build
-    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:buildType $env:installDir ..
     - cmd: cmake --build . --target install --config Release
     - cmd: cd ../..
     - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DSSBL_INSTALL_DIR=./ssbl/install -Bbuild .
