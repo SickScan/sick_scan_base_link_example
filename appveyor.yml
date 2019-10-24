@@ -147,11 +147,14 @@ init:
 
 
 before_build:
-#    - ps: $path = [System.Environment]::GetEnvironmentVariable('PATH','Machine')
-#    - ps: $path = ($path.Split(';') | Where-Object { $_ -ne 'C:\Program Files\Git\usr\bin' }) -join ';'
-#    - ps: $path += ";C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw32\bin"
-#    - ps: $env:path = $path
-    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -Bbuild .
+    - ps: git clone https://github.com/SickScan/sick_scan_base.git ssbl
+    - ps: cd ssbl
+    - ps: mkdir build
+    - ps: cd build
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..
+    - ps: cmake --build . --target install --config Release
+    - ps: cd ../..
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DSSBL_INSTALL_DIR=./ssbl/install -Bbuild .
     
 build_script:
 - ps: cmake --build build --config Release

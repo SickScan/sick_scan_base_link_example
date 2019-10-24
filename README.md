@@ -1,1 +1,1 @@
-# sick_scan_base_examples
+# Linking a User Application with SSBL

@@ -1,9 +1,10 @@
 cmake_minimum_required (VERSION 3.10)
 project(UserAPP)
 
+
 list(APPEND CMAKE_PREFIX_PATH "${SSBL_INSTALL_DIR}")
 
-message(STATUS  ${CMAKE_PREFIX_PATH})
+
 
 find_package(ssbl REQUIRED)
 
