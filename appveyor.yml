@@ -149,13 +149,13 @@ init:
 
 
 before_build:
-    - cmd: git clone https://github.com/SickScan/sick_scan_base.git ssbl
-    - cmd: cd ssbl
-    - cmd: mkdir build
-    - cmd: cd build
+    - ps: git clone https://github.com/SickScan/sick_scan_base.git ssbl
+    - ps: cd ssbl
+    - ps: mkdir build
+    - ps: cd build
     - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:buildType $env:installDir --no-warn-unused-cli ..
-    - cmd: cmake --build . --target install --config Release
-    - cmd: cd ../..
+    - ps: cmake --build . --target install --config Release
+    - ps: cd ../..
     - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:ssblDir -Bbuild .
     
 build_script:
