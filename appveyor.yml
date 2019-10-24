@@ -68,7 +68,7 @@ matrix:
 init:
     - ps:  $env:buildType = "-DCMAKE_BUILD_TYPE=Release" 
     - ps:  $env:installDir = "-DCMAKE_INSTALL_PREFIX=./install"
-    - ps:  $env:ssblDir = "-DSSBL_INSTALL_DIR=./ssbl/install"
+    - ps:  $env:ssblDir = "-DSSBL_INSTALL_DIR=./ssbl/build/install"
     - ps: >-
         switch($env:arch_compiler) {
             i386_msvc
