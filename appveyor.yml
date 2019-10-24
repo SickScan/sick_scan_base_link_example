@@ -151,10 +151,10 @@ before_build:
     - cmd: cd ssbl
     - cmd: mkdir build
     - cmd: cd build
-    - cmd: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..
     - cmd: cmake --build . --target install --config Release
     - cmd: cd ../..
-    - cmd: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DSSBL_INSTALL_DIR=./ssbl/install -Bbuild .
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DSSBL_INSTALL_DIR=./ssbl/install -Bbuild .
     
 build_script:
 - ps: cmake --build build --config Release
