@@ -68,7 +68,7 @@ matrix:
 init:
     - ps:  $env:buildType = "-DCMAKE_BUILD_TYPE=Release" 
     - ps:  $env:installDir = "-DCMAKE_INSTALL_PREFIX=./install"
-
+    - ps:  $env:ssblDir = "-DSSBL_INSTALL_DIR=./ssbl/install"
     - ps: >-
         switch($env:arch_compiler) {
             i386_msvc
@@ -156,7 +156,7 @@ before_build:
     - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:buildType $env:installDir --no-warn-unused-cli ..
     - cmd: cmake --build . --target install --config Release
     - cmd: cd ../..
-    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -DSSBL_INSTALL_DIR=./ssbl/install -Bbuild .
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:ssblDir -Bbuild .
     
 build_script:
 - ps: cmake --build build --config Release
