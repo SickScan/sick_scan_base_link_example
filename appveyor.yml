@@ -159,7 +159,7 @@ before_build:
     - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:buildType $env:installDir --no-warn-unused-cli ..
     - ps: cmake --build . --target install --config Release
     - ps: cd ../..
-    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:ssblDir -Bbuild .
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags $env:buildType $env:ssblDir -Bbuild .
     
 build_script:
 - ps: cmake --build build --config Release
