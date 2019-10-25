@@ -148,7 +148,7 @@ init:
 
 
 install:
-    - sh: sudo apt-get install libc6-dev:i386
+    - sh: sudo apt-get --assume-yes install libc6-dev:i386
 
 before_build:
     - ps: git clone -q https://github.com/SickScan/sick_scan_base.git ssbl
