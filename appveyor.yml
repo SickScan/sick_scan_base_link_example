@@ -148,7 +148,6 @@ init:
 
 
 install:
-install:
     - sh: sudo apt-get update
     - sh: sudo apt-get --assume-yes install  gcc-multilib g++-multilib
     
