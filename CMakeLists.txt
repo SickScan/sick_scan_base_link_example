@@ -13,7 +13,7 @@ set( APP_SRC
 )
 
 add_executable(${PROJECT_NAME} ${APP_SRC})
-target_link_libraries(${PROJECT_NAME} ssbl::ssbl)
+target_link_libraries(${PROJECT_NAME} ssbl::core::static)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   if("${SSBL_32BIT}" )
