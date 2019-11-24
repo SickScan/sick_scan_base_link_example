@@ -4,8 +4,6 @@ project(UserAPP)
 
 list(APPEND CMAKE_PREFIX_PATH "${SSBL_INSTALL_DIR}")
 
-
-
 find_package(ssbl REQUIRED)
 
 set( APP_SRC
@@ -13,7 +11,7 @@ set( APP_SRC
 )
 
 add_executable(${PROJECT_NAME} ${APP_SRC})
-target_link_libraries(${PROJECT_NAME} ssbl::core::static)
+target_link_libraries(${PROJECT_NAME} ::ssbl-tim5xx_1_0_0_model-static)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   if("${SSBL_32BIT}" )
